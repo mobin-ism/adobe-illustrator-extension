@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Browser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet"
+    />
+    <style>
+        body {
+            margin: 20px;
+            font-family: "Manrope", sans-serif;
+            background-color: #535353;
+            color: #ffffff;
+        }
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #loading {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            display: none; /* Hide initially, show when loading */
+        }
+        #fileList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between items */
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between; /* Align button to the right */
+            align-items: center; /* Center items vertically */
+            padding: 12px;
+            background: #424242;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .file-item:hover {
+            background: #313131; /* Change background on hover */
+        }
+        button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: "Manrope", sans-serif;
+        }
+        button:hover {
+            background: #0056b3; /* Darken button on hover */
+            font-family: "Manrope", sans-serif;
+        }
+        #refreshButton {
+            background: #28a745; /* Green background for refresh button */
+            font-family: "Manrope", sans-serif;
+        }
+        #refreshButton:hover {
+            background: #218838; /* Darken refresh button on hover */
+            font-family: "Manrope", sans-serif;
+        }
+        .auth-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .auth-container input {
+            margin: 5px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .auth-container button {
+            background: #28a745;
+        }
+        .auth-container button:hover {
+            background: #218838;
+        }
+        #authMessage {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container" id="authContainer">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button id="loginButton">Login</button>
+        <div id="authMessage"></div>
+    </div>
+
+    <div id="fileContainer" style="display:none;">
+        <h2>
+            Files
+            <button id="refreshButton">Refresh</button>
+            <!-- Refresh button -->
+        </h2>
+        <div id="loading" class="loading">Loading...</div>
+        <ul id="fileList"></ul>
+    </div>
+
+    <script src="./js/CSInterface.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
